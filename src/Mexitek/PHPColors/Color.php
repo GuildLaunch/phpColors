@@ -199,6 +199,21 @@ class Color {
         return implode( '', $hex );
 
   }
+    public static function rgbStringToRgbArray($rgbString){
+        $rgbString = str_replace('rgb(','',$rgbString);
+        $rgbString = str_replace('rgba(','',$rgbString);
+        $rgbString = str_replace(')','',$rgbString);
+        $rgbString = str_replace(' ','',$rgbString);
+        $rgbArray = explode(',',$rgbString);
+        $rgbArray = array('R'=>$rgbArray[0],'G'=>$rgbArray[1],'B'=>$rgbArray[2]);
+        return $rgbArray;
+    }
+
+    public static function setRgbAlpha($rgbArray, $transparency){
+        //get rgb array and reassemble with rgba
+        $color = 'rgba(' . $rgbArray['R'] . ',' . $rgbArray['G'] . ',' . $rgbArray['B'] . ',' . $transparency . ')';
+        return $color;
+    }
 
 
     /**
