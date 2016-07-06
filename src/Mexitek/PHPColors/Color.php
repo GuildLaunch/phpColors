@@ -198,7 +198,7 @@ class Color {
 
         return implode( '', $hex );
 
-  }
+    }
     public static function rgbStringToRgbArray($rgbString){
         $rgbString = str_replace('rgb(','',$rgbString);
         $rgbString = str_replace('rgba(','',$rgbString);
@@ -213,6 +213,11 @@ class Color {
         //get rgb array and reassemble with rgba
         $color = 'rgba(' . $rgbArray['R'] . ',' . $rgbArray['G'] . ',' . $rgbArray['B'] . ',' . $transparency . ')';
         return $color;
+    }
+
+    public static function hexToRgbClean($color){
+        $rgbString = 'rgb(' . $color['R'] . ',' . $color['G'] . ',' . $color['B'] . ')';
+        return $rgbString;
     }
 
 
